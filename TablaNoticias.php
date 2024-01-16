@@ -1,6 +1,6 @@
 <?php
 require_once('conexion.php');
-$sql = "SELECT ID,TITULO,CONTENIDO,IMAGEN,CONVERT(varchar,FECHA,3) as FECHA, AUTOR, DEPARTAMENTO FROM Noticias";
+$sql = "SELECT ID,TITULO,CONTENIDO,IMAGEN,TO_CHAR(FECHA, 'DD/MM/YYYY') as FECHA, AUTOR, DEPARTAMENTO FROM Noticias";
 $stmt = $conexion->query($sql);
 $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

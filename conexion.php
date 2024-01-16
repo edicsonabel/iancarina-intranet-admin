@@ -3,18 +3,18 @@ class Conexion
 {
     public static function Conectar()
     { {
-            define('servidor', 'localhost');
-            define('nombrebd', 'BD_MARY');
-            define('usuario', 'sa');
-            define('password', 'whatTh3fuck**');
+            define('servidor', '');
+            define('nombrebd', '');
+            define('usuario', '');
+            define('password', '');
         }
 
 
         try {
-            $conexion = new PDO("sqlsrv:Server=" . servidor . ";Database=" . nombrebd . ";TrustServerCertificate=true", usuario, password);
-            //echo "Se conecto correctamente"; //solo se usa para probar la conexion con el servidor en el crud
+            $conexion = new PDO("pgsql:host=" . servidor . ";dbname=" . nombrebd, usuario, password);
+            //echo "Se conecto correctamente"; //solo se usa para probar la conexión con el servidor en el CRUD
             return $conexion;
-        } catch (Exception $e) {
+        } catch (PDOException $e) {
             die("El error de conexión es: " . $e->getMessage());  // captura el mensaje de error de conexión con el servidor
         }
     }
