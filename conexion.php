@@ -11,7 +11,8 @@ class Conexion
 
 
         try {
-            $conexion = new PDO("pgsql:host=" . servidor . ";dbname=" . nombrebd, usuario, password);
+            $conexion = new PDO("mysql:host=" . servidor . ";dbname=" . nombrebd, usuario, password);
+            // $conexion = new PDO("pgsql:host=" . servidor . ";dbname=" . nombrebd, usuario, password);
             //echo "Se conecto correctamente"; //solo se usa para probar la conexión con el servidor en el CRUD
             return $conexion;
         } catch (PDOException $e) {

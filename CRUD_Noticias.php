@@ -154,7 +154,7 @@ if (isset($_POST['eliminar_noticia'])) {
 if (isset($_GET['noticia_id'])) {
     $noticia_id = $_GET['noticia_id'];
     // Preparar la consulta SQL con marcadores de posición
-    $sql = "SELECT ID, TITULO, CONTENIDO, IMAGEN, TO_CHAR(FECHA, 'DD/MM/YYYY') as FECHA, AUTOR, DEPARTAMENTO FROM Noticias WHERE id = :id;";
+    $sql = "SELECT ID, TITULO, CONTENIDO, IMAGEN, DATE_FORMAT(FECHA, '%d/%m/%Y') as FECHA, AUTOR, DEPARTAMENTO FROM Noticias WHERE id = :id;";
     $stmt = $conexion->prepare($sql);
     $stmt->bindParam(':id', $noticia_id);
     // Ejecutar la consulta
